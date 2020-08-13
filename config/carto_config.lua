@@ -56,7 +56,7 @@ TRAJECTORY_BUILDER_3D.submaps.num_range_data = 50
 TRAJECTORY_BUILDER_3D.use_online_correlative_scan_matching = false
 
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_0 = 1 --high res submap
-TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_1 = 6  --low res submap
+TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_1 = 10  --low res submap
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.translation_weight = 5
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.rotation_weight = 5
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.only_optimize_yaw = true

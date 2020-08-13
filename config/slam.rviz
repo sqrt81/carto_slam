@@ -26,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: PointCloud2
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -38,7 +38,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: true
+      Enabled: false
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
@@ -51,7 +51,7 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -63,6 +63,10 @@ Visualization Manager:
           Value: true
         laser:
           Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
         torso:
           Value: true
       Marker Scale: 1
@@ -71,7 +75,15 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_link:
+              imu_link:
+                {}
+              laser:
+                {}
+              torso:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -140,8 +152,8 @@ Visualization Manager:
     - Class: Submaps
       Enabled: true
       Fade-out distance: 1
-      High Resolution: true
-      Low Resolution: false
+      High Resolution: false
+      Low Resolution: true
       Name: Submaps
       Submap query service: /submap_query
       Submaps:
@@ -213,7 +225,7 @@ Visualization Manager:
   Global Options:
     Background Color: 100; 100; 100
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: laser
     Frame Rate: 30
   Name: root
   Tools:
@@ -246,7 +258,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 12.739501953125
+      Scale: 5.345069408416748
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
       X: 0.6496500968933105
