@@ -1,0 +1,13 @@
+<launch>
+  <param name="robot_description"
+    textfile="$(find carto_slam)/urdf/bot.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+    
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+    args="-d $(find carto_slam)/config/bag_demo.rviz" />
+
+  <node name="ros_bag" pkg="rosbag" type="play"
+    args="$(find carto_slam)/recorded_bag/test.bag" />
+</launch>

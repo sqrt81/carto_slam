@@ -1,0 +1,37 @@
+<robot name="bot">
+    <material name="orange">
+        <color rgba="1.0 0.5 0.2 1" />
+    </material>
+    
+    <link name="base_link" />
+    
+    <link name="torso">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" />
+            <geometry>
+                <box size="0.06 0.04 0.02" />
+            </geometry>
+            <material name="orange" />
+        </visual>
+    </link>
+    <link name="laser" />
+    <link name="imu_link" />
+    
+    <joint name="j_torso" type="fixed">
+        <parent link="base_link" />
+        <child link="torso" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    
+    <joint name="j_laser" type="fixed">
+        <parent link="base_link" />
+        <child link="laser" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    
+    <joint name="j_imu" type="fixed">
+        <parent link="base_link" />
+        <child link="imu_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+</robot>

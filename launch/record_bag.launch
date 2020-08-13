@@ -1,0 +1,21 @@
+<launch>
+  <param name="robot_description"
+    textfile="$(find carto_slam)/urdf/bot.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+    
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+    args="-d $(find carto_slam)/config/bag_demo.rviz" />
+  
+  <!-- publish a fake imu node which indicate gravity -->
+  <node name="fake_imu" pkg="carto_slam" type="fake_imu.py" />
+  
+  <include file="$(find carto_slam)/launch/velodyne.launch">
+    <arg name="frame_id" value="laser" />
+  </include>
+
+  <node name="ros_bag" pkg="rosbag" type="record"
+    args="/Imu /velodyne_points -o $(find carto_slam)/recorded_bag/ -j --split --size=100" />
+
+</launch>
