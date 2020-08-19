@@ -1,7 +1,6 @@
 <launch>
 
   <!-- declare arguments with default values -->
-  <arg name="calibration" default="$(find carto_slam)/config/32db.yaml"/>
   <arg name="device_ip" default="192.168.1.203" />
   <arg name="frame_id" default="velodyne" />
   <arg name="manager" default="$(arg frame_id)_nodelet_manager" />
@@ -17,8 +16,11 @@
   <arg name="laserscan_ring" default="-1" />
   <arg name="laserscan_resolution" default="0.007" />
 
+<!--
   <include file="$(find velodyne_pointcloud)/launch/32e_points.launch">
-    <arg name="calibration" value="$(arg calibration)"/>
+-->
+
+  <include file="$(find velodyne_pointcloud)/launch/VLP-32C_points.launch">
     <arg name="device_ip" value="$(arg device_ip)" />
     <arg name="frame_id" value="$(arg frame_id)" />
     <arg name="manager" value="$(arg manager)" />
