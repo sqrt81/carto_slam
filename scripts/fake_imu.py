@@ -30,9 +30,9 @@ def BuildFakeImuData():
 
 
 def main():
-    pub = rospy.Publisher("Imu", Imu, queue_size=1)
     rospy.init_node('fake_imu', anonymous=True)
-    rate = rospy.Rate(1)
+    pub = rospy.Publisher("Imu", Imu, queue_size=1)
+    rate = rospy.Rate(10)
     header_cnt = 0
     
     rate.sleep()
