@@ -1,4 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/python
+
+import sys
+
+sys.path.append('/usr/local/lib/python2.7/dist-packages')
 
 import rospy
 from sensor_msgs.msg import Imu
