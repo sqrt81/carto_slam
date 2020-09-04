@@ -14,7 +14,7 @@
             <material name="orange" />
         </visual>
     </link>
-    <link name="laser" />
+    <link name="velodyne" />
     <link name="imu_link" />
     
     <joint name="j_torso" type="fixed">
@@ -25,8 +25,8 @@
     
     <joint name="j_laser" type="fixed">
         <parent link="base_link" />
-        <child link="laser" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <child link="velodyne" />
+        <origin xyz="0 0 0" rpy="0 0.05 0" />
     </joint>
     
     <joint name="j_imu" type="fixed">

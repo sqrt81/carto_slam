@@ -1,5 +1,6 @@
 <launch>
   <arg name="bag_filename" default="$(find carto_slam)/recorded_bag/test.bag" />
+  <arg name="play_bag" default="false" />
   
   <param name="use_sim_time" value="true"/>
   
@@ -12,10 +13,12 @@
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find carto_slam)/config/slam.rviz" />
   
-  <node name="ros_bag" pkg="rosbag" type="play"
+  <node if="$(arg play_bag)" name="ros_bag" pkg="rosbag" type="play"
     args="$(arg bag_filename) --clock" />
 
+<!--
   <node name="fake_imu" pkg="carto_slam" type="fake_imu.py" />
+-->
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="

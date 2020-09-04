@@ -14,7 +14,9 @@
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find carto_slam)/config/slam.rviz" />
 
+
   <node name="fake_imu" pkg="carto_slam" type="fake_imu.py" />
+
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="

@@ -3,7 +3,7 @@
  
   <arg name="bag_filename" default="$(find carto_slam)/recorded_bag/test.bag" />
 
-  <node name="rviz" pkg="rviz" type="rviz" required="true"
+  <node name="rviz" pkg="rviz" type="rviz"
     args="-d $(find carto_slam)/config/slam.rviz" />
 
   <node name="cartographer_offline_node" pkg="cartographer_ros"
@@ -11,7 +11,8 @@
       -configuration_directory $(find carto_slam)/config
       -configuration_basenames carto_config.lua
       -urdf_filenames $(find carto_slam)/urdf/bot.urdf
-      -bag_filenames $(arg bag_filename)"
+      -bag_filenames $(arg bag_filename)
+      -save_state_filename $(find carto_slam)/recorded_bag/state.pbstream"
     output="screen">
     <remap from="/points2" to="/velodyne_points" />
     <remap from="/imu" to="/Imu" />
