@@ -15,7 +15,7 @@
         </visual>
     </link>
     <link name="laser" />
-    <link name="imu_link" />
+    <link name="imu_base" />
     
     <joint name="j_torso" type="fixed">
         <parent link="base_link" />
@@ -26,12 +26,12 @@
     <joint name="j_laser" type="fixed">
         <parent link="base_link" />
         <child link="laser" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0.05 0" />
     </joint>
     
     <joint name="j_imu" type="fixed">
         <parent link="base_link" />
-        <child link="imu_link" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <child link="imu_base" />
+        <origin xyz="0 0 0" rpy="0 0.05 0" />
     </joint>
 </robot>

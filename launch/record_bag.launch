@@ -9,7 +9,9 @@
     args="-d $(find carto_slam)/config/bag_demo.rviz" />
   
   <!-- publish a fake imu node which indicate gravity -->
+<!--
   <node name="fake_imu" pkg="carto_slam" type="fake_imu.py" />
+-->
   
   <include file="$(find carto_slam)/launch/velodyne.launch">
     <arg name="frame_id" value="laser" />

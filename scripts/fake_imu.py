@@ -11,7 +11,7 @@ from geometry_msgs.msg import Quaternion, Vector3
 
 def BuildFakeImuData():
     imu_data = Imu()
-    imu_data.header.frame_id = 'imu_link'
+    imu_data.header.frame_id = 'base_link'
     imu_data.orientation.x = 0
     imu_data.orientation.y = 0
     imu_data.orientation.z = 0
@@ -35,8 +35,6 @@ def main():
     rate = rospy.Rate(10)
     header_cnt = 0
     
-    rate.sleep()
-    rate.sleep()
     
     imu_data = BuildFakeImuData()
     

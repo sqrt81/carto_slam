@@ -1,5 +1,6 @@
 <launch>
-  <arg name="state_filename" default="$(find carto_slam)/recorded_bag/state.pbstream" />
+  <arg name="map" default="road" />
+  <arg name="state_filename" default="$(find carto_slam)/recorded_bag/state_$(arg map).pbstream" />
   
   <param name="/use_sim_time" value="false" />
 
@@ -8,11 +9,18 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher"
     type="robot_state_publisher" />
-    
-  <node name="rviz" pkg="rviz" type="rviz" required="true"
+
+
+  <node name="rviz" pkg="rviz" type="rviz"
       args="-d $(find carto_slam)/config/slam.rviz" />
 
+  <node name="map_server" pkg="carto_slam" type="map_server.py" output="screen" >
+    <param name="map_file" value="$(find carto_slam)/recorded_bag/ros_map.pgm" />
+  </node>
+
+
   <node name="fake_imu" pkg="carto_slam" type="fake_imu.py" />
+
   
   <include file="$(find carto_slam)/launch/velodyne.launch">
     <arg name="frame_id" value="laser" />
