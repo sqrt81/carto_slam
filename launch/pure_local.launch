@@ -1,5 +1,5 @@
 <launch>
-  <arg name="map" default="road" />
+  <arg name="map" default="gym" />
   <arg name="state_filename" default="$(find carto_slam)/recorded_bag/state_$(arg map).pbstream" />
   
   <param name="/use_sim_time" value="false" />
